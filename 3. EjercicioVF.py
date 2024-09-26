@@ -8,11 +8,14 @@ import seaborn as sns
 ar ='dashboard_simple_data.csv'
 ar = pd.read_csv(ar)
 
+
 st.title ('Mi dashboard VF')
 st.write(ar)
 
 #Creo una barra lateral para el filtro
 st.sidebar.header('Filtros')
+
+
 #Creo un filtro para categoria
 filtro_cat = st.sidebar.multiselect('Filtra por Categoria:',ar['Categoria'].unique())
 #Creo un filtro para fecha
@@ -30,4 +33,6 @@ st.subheader('Grafico de barras')
 fig2=px.bar(df_filtrado,x='Categoria',y='Fecha', color = 'Categoria', title='cantidad por fecha')
 #Mostrar el grafico en Streamlit
 st.plotly_chart(fig2)
+
+
 
